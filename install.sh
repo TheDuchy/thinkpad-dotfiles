@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CFG_PATH=~/.config/duchy-dotfiles/
+CFG_PATH=~/.config/duchy-dotfiles
 INSTALL_PATH=~/install
 
 
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install python3-pip gnupg2 firefox linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev nvim
+sudo apt-get install libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev neovim
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
@@ -34,10 +34,10 @@ for x in *; do
 	cd ..
 done
 
-cd ~/
+cd $INSTALL_PATH
 
-git clone git://github.com/lwfinger/rtw89.git $INSTALL_PATH/rtw89
-cd $INSTALL_PATH/rtw89
+git clone https://github.com/lwfinger/rtw89
+cd rtw89
 make
 sudo make install
 cd ~/
@@ -47,5 +47,6 @@ mkdir -p ~/.config/nvim
 cp $CFG_PATH/tmux.conf ~/.config/tmux.conf
 cp $CFG_PATH/nvim.conf ~/.config/nvim/init.vim
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-
+cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
+sudo update-grub
 echo "exec dwm" > ~/.xinitrc
