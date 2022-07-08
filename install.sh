@@ -7,7 +7,7 @@ INSTALL_PATH=~/install
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install firefox linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev nvim
+sudo apt-get install python3-pip gnupg2 firefox linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev nvim
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
