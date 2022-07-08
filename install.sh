@@ -7,7 +7,7 @@ INSTALL_PATH=~/install
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install firefox linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor
+sudo apt-get install firefox linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev nvim
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
@@ -43,6 +43,9 @@ sudo make install
 cd ~/
 
 cp $CFG_PATH/zsh.conf ~/.zshrc
-mkdir ~/.config
+mkdir -p ~/.config/nvim
 cp $CFG_PATH/tmux.conf ~/.config/tmux.conf
+cp $CFG_PATH/nvim.conf ~/.config/nvim/init.vim
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
+
+echo "exec dwm" > ~/.xinitrc
