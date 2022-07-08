@@ -7,7 +7,7 @@ INSTALL_PATH=~/install
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev neovim
+sudo apt-get install network-manager libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev neovim
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
