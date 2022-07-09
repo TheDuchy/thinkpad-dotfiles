@@ -54,6 +54,6 @@ echo "exec dwm" > ~/.xinitrc
 
 mkdir -p $FIREFOX_EXTENSIONS
 cd $FIREFOX_EXTENSIONS
-wget https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi -O bitwarden.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi -O ublock-origin.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi -O tampermonkey.xpi
