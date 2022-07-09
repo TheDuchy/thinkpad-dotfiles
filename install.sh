@@ -2,7 +2,7 @@
 
 CFG_PATH=~/.config/duchy-dotfiles
 INSTALL_PATH=~/install
-
+FIREFOX_EXTENSIONS=$INSTALL_PATH/firefox-extensions
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -12,11 +12,12 @@ sudo apt-get install network-manager libxrandr-dev libxinerama-dev pkg-config li
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
 
-echo "export CFG_PATH=$CFG_PATH" >> cfg/zsh.conf
-echo "export INSTALL_PATH=$INSTALL_PATH" >> cfg/zsh.conf
-
 mkdir -p $CFG_PATH
 cp cfg/*.conf $CFG_PATH
+
+echo "export CFG_PATH=$CFG_PATH" >> $CFG_PATH/zsh.conf
+echo "export INSTALL_PATH=$INSTALL_PATH" >> $CFG_PATH/zsh.conf
+echo "export FIREFOX_EXTENSIONS=$FIREFOX_EXTENSIONS" >> $CFG_PATH/zsh.conf
 
 mkdir -p $INSTALL_PATH
 cd $INSTALL_PATH
@@ -50,3 +51,9 @@ sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
 sudo update-grub
 echo "exec dwm" > ~/.xinitrc
+
+mkdir -p $FIREFOX_EXTENSIONS
+cd $FIREFOX_EXTENSIONS
+wget https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi
