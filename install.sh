@@ -28,11 +28,11 @@ git clone https://git.suckless.org/slock
 git clone https://git.suckless.org/dmenu
 
 for x in *; do
-	cd $x
-	git checkout -b duchy
-	cp $CFG_PATH/$x.conf config.def.h
-	make && sudo make install
-	cd ..
+        cd $x
+        git checkout -b duchy
+        cp $CFG_PATH/$x.conf config.def.h
+        make && sudo make install
+        cd ..
 done
 
 cd $INSTALL_PATH
@@ -45,7 +45,7 @@ cd ~/
 
 cp $CFG_PATH/zsh.conf ~/.zshrc
 mkdir -p ~/.config/nvim
-cp $CFG_PATH/tmux.conf ~/.config/tmux.conf
+cp $CFG_PATH/tmux.conf ~/.tmux.conf
 cp $CFG_PATH/nvim.conf ~/.config/nvim/init.vim
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
