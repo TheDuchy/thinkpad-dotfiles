@@ -7,7 +7,7 @@ FIREFOX_EXTENSIONS=$INSTALL_PATH/firefox-extensions
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install htop pavucontrol pulseaudio p7zip-full weechat network-manager libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev neovim
+sudo apt-get install acpi xsensors htop pavucontrol pulseaudio p7zip-full weechat network-manager libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev neovim
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
@@ -26,12 +26,13 @@ git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dwm
 git clone https://git.suckless.org/slock
 git clone https://git.suckless.org/dmenu
+git clone https://git.suckless.org/slstatus
 
 for x in *; do
         cd $x
         git checkout -b duchy
-        cp $CFG_PATH/$x.conf config.def.h
-        make && sudo make install
+        cp $CFG_PATH/$x.conf config.h
+        make && sudo make clean install
         cd ..
 done
 
@@ -50,7 +51,7 @@ cp $CFG_PATH/nvim.conf ~/.config/nvim/init.vim
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
 sudo update-grub
-echo "exec dwm" > ~/.xinitrc
+echo "slstatus 2>&1 >/dev/null &\nexec dwm" > ~/.xinitrc
 
 mkdir -p $FIREFOX_EXTENSIONS
 cd $FIREFOX_EXTENSIONS
