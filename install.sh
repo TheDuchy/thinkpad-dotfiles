@@ -15,6 +15,9 @@ git config --global user.email "duchy@honeypot.lol"
 mkdir -p $CFG_PATH
 cp cfg/*.conf $CFG_PATH
 
+mkdir ~/scripts
+gcc -s -static -O3 src/sub-hash.c -o ~/scripts/sub-hash
+
 echo "export CFG_PATH=$CFG_PATH" >> $CFG_PATH/zsh.conf
 echo "export INSTALL_PATH=$INSTALL_PATH" >> $CFG_PATH/zsh.conf
 echo "export FIREFOX_EXTENSIONS=$FIREFOX_EXTENSIONS" >> $CFG_PATH/zsh.conf
