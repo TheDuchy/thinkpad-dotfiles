@@ -7,7 +7,7 @@ FIREFOX_EXTENSIONS=$INSTALL_PATH/firefox-extensions
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install net-tools acpi xsensors htop pavucontrol pulseaudio p7zip-full weechat network-manager libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev vim 
+sudo apt-get install firmware-amd-graphics xbacklight net-tools acpi xsensors htop pavucontrol pulseaudio p7zip-full weechat network-manager libxrandr-dev libxinerama-dev pkg-config libxft-dev python3-pip gnupg2 firefox-esr linux-headers-$(uname -r) xorg ripgrep nmap hexcurse build-essential make cmake automake git curl wget zsh tmux ranger zathura mpv transmission-gtk transmission-cli tor libx11-dev vim 
 
 git config --global user.name "duchy"
 git config --global user.email "duchy@honeypot.lol"
@@ -59,3 +59,8 @@ cd $FIREFOX_EXTENSIONS
 wget https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi -O bitwarden.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi -O ublock-origin.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi -O tampermonkey.xpi
+
+cd $INSTALL_PATH
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+cp linux-firmware/amdgpu/green-sardine_* /lib/firmware/amdgpu/
+
