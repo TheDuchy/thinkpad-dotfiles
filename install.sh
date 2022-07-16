@@ -49,6 +49,8 @@ cd ~/
 
 cp $CFG_PATH/zsh.conf ~/.zshrc
 cp $CFG_PATH/tmux.conf ~/.tmux.conf
+cp $CFG_PATH/vim.conf ~/.vimrc
+
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
 sudo update-grub
