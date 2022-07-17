@@ -64,5 +64,5 @@ wget https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi
 
 cd $INSTALL_PATH
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-cp linux-firmware/amdgpu/green-sardine_* /lib/firmware/amdgpu/
+sudo cp linux-firmware/amdgpu/green_sardine_* /lib/firmware/amdgpu/
 
