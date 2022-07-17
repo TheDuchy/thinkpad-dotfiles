@@ -54,8 +54,8 @@ cp $CFG_PATH/vim.conf ~/.vimrc
 sudo cp $CFG_PATH/touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 cat /etc/default/grub | sed -e "s/GRUB_CMDLINE_LINUX=\".*/GRUB_CMDLINE_LINUX\=\"net.ifnames=0\"/" | sudo tee /etc/default/grub
 sudo update-grub
-echo "slstatus 2>&1 >/dev/null &\nexec dwm" > ~/.xinitrc
-
+echo "slstatus 2>&1 >/dev/null &" > ~/.xinitrc
+echo "exec dwm" >> ~/.xinitrc
 mkdir -p $FIREFOX_EXTENSIONS
 cd $FIREFOX_EXTENSIONS
 wget https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi -O bitwarden.xpi
